@@ -167,7 +167,6 @@ function onPlayerReady(slide) {
 
 	// init sticky header
 	jQuery.fn.init_sticky_header = function() {
-
 		var sticky_mobile_menu_padding;
 
 		var sticky_header_height = 65;
@@ -180,7 +179,7 @@ function onPlayerReady(slide) {
 
 		var anchor_scrolling = 0;
 		jQuery('.sticky-header').css('top', sticky_start+'px');
-		jQuery('.init-sticky-header').waypoint(function(direction) {
+		jQuery('#services').waypoint(function(direction) {
 			if(direction === "down") {
 
 				// one page anchor page load scrolling
@@ -202,10 +201,12 @@ function onPlayerReady(slide) {
 					height: sticky_header_height + 3 + 'px',
 					top: sticky_top
 					}, 500 );
-				jQuery('.sticky-shadow').animate({
-					height: sticky_header_height  + 'px',
-					top: sticky_top
-				}, 500 );
+				// jQuery('.sticky-header').css('height', sticky_header_height + 3 + 'px').css('top', sticky_top);
+				// jQuery('.sticky-shadow').animate({
+					// height: sticky_header_height  + 'px',
+					// top: sticky_top
+				// }, 500 );
+				jQuery('.sticky-shadow').css('height', sticky_header_height + 'px').css('top', sticky_top);
 
 
 				if( jQuery('#header .retina_logo').is(':visible')) {
@@ -253,29 +254,30 @@ function onPlayerReady(slide) {
 
 				//IE8 quirks
 				if (jQuery('.no-svg').length >= 1) {
-					jQuery(logo).animate({
-						height: logo_height,
-						'line-height': logo_line_height,
-						'max-width': logo_width,
-						'margin-top': logo_margin_top
-					}, 500 );
+					// jQuery(logo).animate({
+						// height: logo_height,
+						// 'line-height': logo_line_height,
+						// 'max-width': logo_width,
+						// 'margin-top': logo_margin_top
+					// }, 500 );
 					jQuery(not_logo).css('height', logo_height).css('line-height', logo_line_height).css('max-width', logo_width).css('margin-top', logo_margin_top);
 					jQuery(logo).css('display', '');
 				} else {
-					jQuery(logo).animate({
-						height: logo_height,
-						'line-height': logo_line_height,
-						width: logo_width,
-						'margin-top': logo_margin_top
-					}, 500 );
+					// jQuery(logo).animate({
+						// height: logo_height,
+						// 'line-height': logo_line_height,
+						// width: logo_width,
+						// 'margin-top': logo_margin_top
+					// }, 500 );
 					jQuery(not_logo).css('height', logo_height).css('line-height', logo_line_height).css('width', logo_width).css('margin-top', logo_margin_top);
 					jQuery(logo).css('display', '');
 				}
 
-				jQuery('.sticky-header #sticky-nav ul.menu > li > a').animate({
-					height: sticky_header_height + 'px',
-					'line-height': sticky_header_height + 'px'
-				}, 500 );
+				// jQuery('.sticky-header #sticky-nav ul.menu > li > a').animate({
+					// height: sticky_header_height + 'px',
+					// 'line-height': sticky_header_height + 'px'
+				// }, 500 );
+				jQuery('.sticky-header #sticky-nav ul.menu > li > a').css('height', sticky_header_height + 'px').css('line-height', sticky_header_height + 'px');
 
 
 				jQuery('.sticky-header').addClass('sticky');
@@ -9984,6 +9986,7 @@ jQuery(window).load(function($) {
 
 	// sticky header v1 - v5
 	if( jQuery( '.sticky-header' ).length ) {
+		
 		jQuery('.sticky-header').init_sticky_header();
 	}
 });

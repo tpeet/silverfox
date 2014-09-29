@@ -105,6 +105,8 @@ class FusionSC_Testimonials {
 				'target'		=> '_self',
 				
 				'gender' 		=> '',	// Deprecated
+                
+                'position'      => '',
 			), $args
 		);
 
@@ -144,7 +146,12 @@ class FusionSC_Testimonials {
 			}
 			
 			$inner_content .= sprintf( '<div %s>%s<span %s><strong>%s</strong>', FusionCore_Plugin::attributes( 'author' ), $thumbnail, FusionCore_Plugin::attributes( 'company-name' ), $name );
-
+            
+            if ($position) {
+                $inner_content .= sprintf(', %s', $position);
+            }
+            
+            
 			if( $company ) {
 
 				if( ! empty( $link ) && 
